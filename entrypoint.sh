@@ -12,7 +12,7 @@ elif [ "$role" = "scheduler" ]; then
     # Run the scheduler
     while [ true ]
     do
-      php artisan schedule:run --verbose --no-interaction
+      php artisan schedule:run --verbose --no-interaction &
       sleep 60
     done
 elif [ "$role" = "web" ]; then
