@@ -6,7 +6,6 @@ services:
     container_name: laravel-web
     environment:
       CONTAINER_ROLE: web
-      APP_LOG: syslog
       DB_HOST: mysql
       REDIS_HOST: redisdb
       BROADCAST_DRIVER: redis
@@ -23,7 +22,6 @@ services:
     container_name: laravel-scheduler
     environment:
       CONTAINER_ROLE: scheduler
-      APP_LOG: syslog
     links:
       - redisdb
       - mysql

@@ -16,3 +16,9 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+Artisan::command('cron-test', function () {
+    app('log')->info('Starting cron test, sleeping for 80 seconds ' . \Carbon\Carbon::now()->toIso8601String());
+    sleep(80);
+    app('log')->info('Ending cron test' . \Carbon\Carbon::now()->toIso8601String());
+})->describe('Demonstrate an overlapping cron');
