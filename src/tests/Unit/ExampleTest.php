@@ -19,6 +19,6 @@ class ExampleTest extends TestCase
     }
 
     public function testFailure() {
-        $this->assertTrue(false, 'Testing the CI Hook');
+        $this->assertTrue(true, 'Testing the CI Hook');
     }
 }
