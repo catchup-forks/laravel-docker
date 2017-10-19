@@ -4,7 +4,7 @@ node('master') {
     try {
         stage('build') {
             checkout scm
-
+            // Install dependencies
             dir('src') {
                 sh "composer install"
                 sh "cp .env.example .env"
@@ -13,7 +13,7 @@ node('master') {
         }
 
         stage('test') {
-            
+
             sh './vendor/bin/phpunit'
         }
     } catch (error) {
