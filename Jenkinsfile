@@ -20,8 +20,15 @@ node('master') {
 
         if (env.BRANCH_NAME == 'master') {
             stage('package') {
-                sh 'docker build -t paulredmond/laravel-docker .'
-                //sh 'docker push paulredmond/laravel-docker'
+
+                docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+                    def image = docker.build("paulredmond/laravel-docker:${env.BUILD_NUMBER}")
+                    
+                    image.push()
+                }
+
+                // sh 'docker build -t paulredmond/laravel-docker .'
+                // sh 'docker push paulredmond/laravel-docker'
             }
         }
     } catch (error) {
