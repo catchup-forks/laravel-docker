@@ -17,6 +17,13 @@ node('master') {
                 sh './vendor/bin/phpunit'
             }
         }
+
+        if (env.BRANCH_NAME == 'master') {
+            stage('package') {
+                sh 'docker build -t paulredmond/laravel-docker .'
+                //sh 'docker push paulredmond/laravel-docker'
+            }
+        }
     } catch (error) {
         throw error;
     } finally {
