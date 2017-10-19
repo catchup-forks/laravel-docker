@@ -10,4 +10,4 @@ rewrite {
 }
 log stdout
 errors stdout
-startup php-fpm &
+on startup php-fpm --nodaemonize
