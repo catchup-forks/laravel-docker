@@ -13,8 +13,9 @@ node('master') {
         }
 
         stage('test') {
-
-            sh './vendor/bin/phpunit'
+            dir('src') {
+                sh './vendor/bin/phpunit'
+            }
         }
     } catch (error) {
         throw error;
