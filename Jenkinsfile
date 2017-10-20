@@ -30,6 +30,18 @@ node('master') {
                 // sh 'docker build -t paulredmond/laravel-docker .'
                 // sh 'docker push paulredmond/laravel-docker'
             }
+
+            stage('Verify deployment') {
+                steps {
+                    input "Does everything look ok?"
+                }
+            }
+
+            stage('Deploy') {
+                steps {
+                    sh "echo 'Deployed BUILD ${env.BUILD_NUMBER}'"
+                }
+            }
         }
     } catch (error) {
         throw error;
