@@ -32,15 +32,11 @@ node('master') {
             }
 
             stage('Verify deployment') {
-                steps {
-                    input "Does everything look ok?"
-                }
+                input "Does everything look ok?"
             }
 
             stage('Deploy') {
-                steps {
-                    sh "echo 'Deployed BUILD ${env.BUILD_NUMBER}'"
-                }
+                sh "echo 'Deployed BUILD ${env.BUILD_NUMBER}'"
             }
         }
     } catch (error) {
