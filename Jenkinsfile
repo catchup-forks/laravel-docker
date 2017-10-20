@@ -31,7 +31,7 @@ node('master') {
                 // sh 'docker push paulredmond/laravel-docker'
             }
 
-            stage('Verify deployment') {
+            stage('Verify') {
                 input "Does everything look ok?"
             }
 
